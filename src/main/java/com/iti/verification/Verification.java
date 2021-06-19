@@ -57,15 +57,16 @@ public class Verification {
 		return result;
 	}
 
-	int checkCode(Verification ver) {
+  String checkCode(Verification ver) {
 		DataBase db = new DataBase();
-		int y=-1; 
+		String y= null; 
 		db.connect();  
 		   try {
-			ResultSet rs = db.select("select count(id) from verification where msisdn='" + ver.getMsisdn()
-					+ "' and verifcode='" + ver.getVerifCode() + "';");
+			   System.out.println(ver.getMsisdn()+":"+ver.getVerifCode());
+			ResultSet rs = db.select("select count(*) from verification where msisdn like'" + ver.getMsisdn()
+					+ "' and verifcode like'" + ver.getVerifCode() + "';");
 			if (rs.next()) {
-                y = rs.getInt(1);
+                y = rs.getString("count");
                 System.out.print(y);
             }
 		   

@@ -49,8 +49,8 @@ public class VerificationAPI {
 	@Consumes(MediaType.APPLICATION_JSON)
      public Response isValid(Verification ver) {
     	 String result = "false";
-    	 int state = ver.checkCode(ver);
-    	 if(state == 1)
+    	 String state = ver.checkCode(ver);
+    	 if(state.equals("1"))
     	    result = "true";
     	 
     	 return Response.status(200).entity(result).build(); 

@@ -7,9 +7,9 @@ public class DataBase {
 
     // init database constants
 //    private static final String DATABASE_DRIVER = "com.mysql.jdbc.Driver";
-   private static final String DATABASE_URL = "jdbc:postgresql://localhost/signal_strength";
-    private static final String USERNAME = "postgres";
-    private static final String PASSWORD = "postgres";
+   private static final String DATABASE_URL = "jdbc:postgresql://batyr.db.elephantsql.com:5432/ychmiwkk";
+    private static final String USERNAME = "ychmiwkk";
+    private static final String PASSWORD = "nmB4fejhPbvh_NvJtOkpludZTCfhsHpP";
 
     // init connection object
     private Connection connection;
@@ -44,7 +44,7 @@ public class DataBase {
             try {
                 //  Class.forName(DATABASE_DRIVER);
 
-                connection = (Connection) DriverManager.getConnection(DATABASE_URL, getProperties());
+                connection = (Connection) DriverManager.getConnection(DATABASE_URL,getProperties());
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -99,8 +99,4 @@ public class DataBase {
         int result = prepStatement.executeUpdate();
         return result;
     }
-    
-    
-  
-  
 }
