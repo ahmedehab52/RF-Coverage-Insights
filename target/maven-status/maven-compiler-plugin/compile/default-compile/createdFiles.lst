@@ -1,0 +1,5 @@
+com\iti\verification\VerificationAPI.class
+com\iti\measurement\MeasurementAPI.class
+com\iti\verification\Verification.class
+com\iti\measurement\DataBase.class
+com\iti\measurement\Measurement.class
