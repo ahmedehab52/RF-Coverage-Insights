@@ -19,9 +19,12 @@ function DataShow() {
   var resJson ;
   xhr.onreadystatechange=function()
   {
+    console.log(0)
     if(xhr.readyState == 4)
     {
+      console.log(1)
       if(xhr.status == 200){
+        console.log(2)
         resJson = xhr.responseText;
         response = JSON.parse(resJson);
         console.log(response)
