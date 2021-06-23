@@ -21,8 +21,8 @@ function DataShow() {
     if (xhr.readyState == 4) {
       if (xhr.status == 200) {
         // response = JSON.parse(xhr.responseText);
-        response = xhr.responseText;
-        console.log(response[0].signal_strength_level)
+        response = JSON(xhr.responseText);
+        // console.log(response[0].signal_strength_level)
       }
     }
   }
@@ -33,24 +33,23 @@ function DataShow() {
 
   L.geoJSON(response, {
     style: function (signal_strength_level) {
-      if (
-        signal_strength_level === "4"
-      ) {
+      if (response.signal_strength_level === 4)
+          {
         return { radius: 10, color: "red", weight: 3, fillOpacity: 0.5 };
       }
       else if (
-        signal_strength_level === "2") {
+        response.signal_strength_level === "2") {
         return { radius: 10, color: "Orange", weight: 3, fillOpacity: 0.5 };
       }
       else {
         return { radius: 10, color: "Green", weight: 3, fillOpacity: 0.5 }; //excllent
       }
     },
-    pointToLayer: function (geoJsonPoint, latlng) {
+    pointToLayer: function (_geoJsonPoint, latlng) {
       return L.circleMarker(latlng);
     },
     onEachFeature: function (feature, layer) {
-      layer.bindPopup(`<div><span style="font-weight: bold;"> ID : </span> ${feature.properties.ID}</div>`);
+      layer.bindPopup(`<div><span style="font-weight: bold;"> ID : </span> ${cell_id}</div>`);
     },
   }).addTo(mymap);
 }
