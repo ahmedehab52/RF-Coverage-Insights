@@ -16,14 +16,15 @@ var mymap = L.map("mapid", {
 function DataShow() {
   var xhr = new XMLHttpRequest();
   xhr.open("GET","https://immense-journey-36861.herokuapp.com/measurment/DML/getAllMeasurements");
-  var response = "";
+  var resJson ;
   xhr.onreadystatechange=function()
   {
     if(xhr.readyState == 4)
     {
       if(xhr.status == 200){
-        response = xhr.responseText;
-        console.log(response.json())
+        resJson = xhr.responseText;
+        response = JSON.parse(resJson);
+        console.log(response)
       }
     }
   }
