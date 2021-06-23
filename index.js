@@ -24,7 +24,7 @@ function DataShow() {
         console.log(2)
         // response = JSON.parse(xhr.responseText);
         response = xhr.responseText;
-        console.log(response)
+        console.log(response.signal_strength_level)
       }
     }
   }
