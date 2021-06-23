@@ -21,7 +21,7 @@ function DataShow() {
     if (xhr.readyState == 4) {
       if (xhr.status == 200) {
         // response = JSON.parse(xhr.responseText);
-        response = JSON(xhr.responseText);
+        response = JSON.parse(xhr.responseText);
         // console.log(response[0].signal_strength_level)
       }
     }
