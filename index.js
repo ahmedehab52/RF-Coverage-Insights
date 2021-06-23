@@ -34,14 +34,14 @@ function DataShow() {
 
 
   L.geoJSON(response, {
-    style: function (measurment) {
+    style: function (signal_strength_level) {
       if (
-        measurment.signal_strength_level === "4"
+        signal_strength_level === "4"
       ) {
         return { radius: 10, color: "red", weight: 3, fillOpacity: 0.5 };
       }
       else if (
-        measurment.signal_strength_level === "2") {
+        signal_strength_level === "2") {
         return { radius: 10, color: "Orange", weight: 3, fillOpacity: 0.5 };
       }
       else {
