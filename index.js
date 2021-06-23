@@ -19,9 +19,7 @@ function DataShow() {
   xhr.open("GET", "https://immense-journey-36861.herokuapp.com/measurment/DML/getAllMeasurements");
   xhr.onreadystatechange = function () {
     if (xhr.readyState == 4) {
-      console.log(1)
       if (xhr.status == 200) {
-        console.log(2)
         // response = JSON.parse(xhr.responseText);
         response = xhr.responseText;
         console.log(response.signal_strength_level)
