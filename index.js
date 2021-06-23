@@ -23,37 +23,35 @@ function DataShow() {
     {
       if(xhr.status == 200){
         response = xhr.responseText;
-        console.log(response.json());
+        console.log(response.json())
       }
     }
   }
   xhr.send("");
   
-  let data = await response.json();
-  console.log(data.properties)
 
   
 
-   L.geoJSON(data, {
-     style: function (features) {
-       if (
-         features.properties.signal_strength_level === "4"
-       ) {
-         return { radius: 10, color: "red", weight: 3, fillOpacity: 0.5 };}
-        else if (
-         features.properties.status === "2"
-       ) {
-         return { radius: 10, color: "Orange", weight: 3, fillOpacity: 0.5 };}
-       else {
-         return { radius: 10, color: "Green", weight: 3, fillOpacity: 0.5 }; //excllent
-       }
-     },
-     pointToLayer: function (geoJsonPoint, latlng) {
-       return L.circleMarker(latlng);
-     },
-     onEachFeature: function (feature, layer) {
-       layer.bindPopup(`<div><span style="font-weight: bold;"> ID : </span> ${feature.properties.ID}</div>`);
-     },
-   }).addTo(mymap); 
+  //  L.geoJSON(data, {
+  //    style: function (features) {
+  //      if (
+  //        features.properties.signal_strength_level === "4"
+  //      ) {
+  //        return { radius: 10, color: "red", weight: 3, fillOpacity: 0.5 };}
+  //       else if (
+  //        features.properties.status === "2"
+  //      ) {
+  //        return { radius: 10, color: "Orange", weight: 3, fillOpacity: 0.5 };}
+  //      else {
+  //        return { radius: 10, color: "Green", weight: 3, fillOpacity: 0.5 }; //excllent
+  //      }
+  //    },
+  //    pointToLayer: function (geoJsonPoint, latlng) {
+  //      return L.circleMarker(latlng);
+  //    },
+  //    onEachFeature: function (feature, layer) {
+  //      layer.bindPopup(`<div><span style="font-weight: bold;"> ID : </span> ${feature.properties.ID}</div>`);
+  //    },
+  //  }).addTo(mymap); 
 }
 DataShow();
