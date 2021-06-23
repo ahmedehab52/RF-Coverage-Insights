@@ -14,7 +14,7 @@ var mymap = L.map("mapid", {
 });
 
 async function DataShow() {
-  let response = await fetch("https://immense-journey-36861.herokuapp.com/measurment/DML/getAllMeasurements")
+  let response = await fetch("https://reqres.in/api/users")
   
   let data = await response.json();
   console.log(data)
