@@ -13,8 +13,21 @@ var mymap = L.map("mapid", {
   doubleClickZoom: false,
 });
 
-async function DataShow() {
-  let response = await fetch("https://immense-journey-36861.herokuapp.com/measurment/DML/getAllMeasurements")
+function DataShow() {
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET","https://immense-journey-36861.herokuapp.com/measurment/DML/getAllMeasurements");
+  var response = "";
+  xhr.onreadystatechange=function()
+  {
+    if(xhr.readyState == 4)
+    {
+      if(xhr.status == 200){
+        response = xhr.responseText;
+        console.log(response.json());
+      }
+    }
+  }
+  xhr.send("");
   
   let data = await response.json();
   console.log(data.properties)
