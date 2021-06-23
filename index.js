@@ -22,7 +22,7 @@ function DataShow() {
       if (xhr.status == 200) {
         // response = JSON.parse(xhr.responseText);
         response = xhr.responseText;
-        console.log(response.signal_strength_level)
+        console.log(response[0].signal_strength_level)
       }
     }
   }
