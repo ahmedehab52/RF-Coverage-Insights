@@ -17,7 +17,7 @@ async function DataShow() {
   let response = await fetch("https://immense-journey-36861.herokuapp.com/measurment/DML/getAllMeasurements")
   
   let data = await response.json();
- 
+  console.log(data)
 
   
 
