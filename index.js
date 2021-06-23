@@ -32,16 +32,19 @@ function DataShow() {
 
 
   L.geoJSON(response, {
-    style: function (signal_strength_level) {
-      if (response.signal_strength_level === 4)
+    style: function (measurment) {
+      if (measurment.signal_strength_level == "4")
           {
+            console.log(0);
         return { radius: 10, color: "red", weight: 3, fillOpacity: 0.5 };
       }
       else if (
-        response.signal_strength_level === "2") {
+        measurment.signal_strength_level == "2") {
+          console.log(1);
         return { radius: 10, color: "Orange", weight: 3, fillOpacity: 0.5 };
       }
       else {
+        console.log(2);
         return { radius: 10, color: "Green", weight: 3, fillOpacity: 0.5 }; //excllent
       }
     },
@@ -49,7 +52,7 @@ function DataShow() {
       return L.circleMarker(latlng);
     },
     onEachFeature: function (feature, layer) {
-      layer.bindPopup(`<div><span style="font-weight: bold;"> ID : </span> ${cell_id}</div>`);
+      layer.bindPopup(`<div><span style="font-weight: bold;"> ID : </span> ${measurement.cell_id}</div>`);
     },
   }).addTo(mymap);
 }
