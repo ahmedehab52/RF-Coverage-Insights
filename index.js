@@ -12,20 +12,12 @@ var mymap = L.map("mapid", {
   worldCopyJump: true,
   doubleClickZoom: false,
 });
-async function getUsers() {
-  let url = 'https://reqres.in/api/users';
-  try {
-      let res = await fetch(url);
-      return await res.json();
-  } catch (error) {
-      console.log(error);
-  }
-}
+
 async function DataShow() {
-  let response = await fetch("https://reqres.in/api/users")
+  let response = await fetch("https://immense-journey-36861.herokuapp.com/measurment/DML/getAllMeasurements")
   
   let data = await response.json();
-  console.log(data)
+  console.log(data.properties)
 
   
 
@@ -51,5 +43,4 @@ async function DataShow() {
      },
    }).addTo(mymap); 
 }
-// DataShow();
-getUsers()
+DataShow();
