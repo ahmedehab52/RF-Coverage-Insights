@@ -13,25 +13,42 @@ var mymap = L.map("mapid", {
   doubleClickZoom: false,
 });
 
-const createGeoJSON = (response) => {
-  const data = [
-      {
-          lat: response[0].longitude,
-          lng: response[0].latitude
-      }
-  ];
-  const dataGeoJSON = GeoJSON.parse(data, { Point: ["lat", "lng"] });
-  console.log(JSON.stringify(dataGeoJSON, null, 4));
-}
+// const createGeoJSON = (response) => {
+//   const data = {}
+//   for ( var ele in response){
+//     objectName[ele] = response[ele] 
+//   }
+
+  
+//   const dataGeoJSON = GeoJSON.parse(data, { Point: ["lat", "lng"] });
+//   console.log(JSON.stringify(dataGeoJSON, null, 4));
+// }
 function DataShow() {
   var response;
+  var geoData = {
+    "type": "FeatureCollection",
+    "features": []
+  };
   var xhr = new XMLHttpRequest();
   xhr.open("GET", "https://immense-journey-36861.herokuapp.com/measurment/DML/getAllMeasurements");
   xhr.onreadystatechange = function () {
     if (xhr.readyState == 4) {
       if (xhr.status == 200) {
         response = JSON.parse(xhr.responseText);
-        createGeoJSON(response);
+        
+        for (let measurement in response ){
+          geoData.features.type = "Feature";
+          geoData.features.geometry = {"type": "Point","coordinates":[]}
+        
+          for (let attr in measurement){
+            if(attr === "longitude" || attr === "latitude"){
+              geoData.features.geometry.coordinates.push(measurement[attr]);
+            }
+            else{
+              geoData.features.properties[attr] = measurement[attr]; 
+            }
+          } 
+        }
 
         // console.log(response[0].signal_strength_level)
       }
