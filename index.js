@@ -49,6 +49,7 @@ function DataShow() {
             }
           } 
         }
+        console.log(geoData)
 
         // console.log(response[0].signal_strength_level)
       }
