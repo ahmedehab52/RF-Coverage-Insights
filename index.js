@@ -65,16 +65,17 @@ function DataShow() {
     },
   }).addTo(mymap);
   for (let measurement in response ){
-    geoData.features.type = "Feature";
-    geoData.features.geometry = {"type": "Point","coordinates":[]}
-  
+    // geoData.features.type = "Feature";
+    // geoData.features.geometry = {"type": "Point","coordinates":[]}
+    console.log(measurement);
     for (let attr in measurement){
-      if(attr === "longitude" || attr === "latitude"){
-        geoData.features.geometry.coordinates.push(measurement[attr]);
-      }
-      else{
-        geoData.features.properties[attr] = measurement[attr]; 
-      }
+      // if(attr === "longitude" || attr === "latitude"){
+      //   geoData.features.geometry.coordinates.push(measurement[attr]);
+      // }
+      // else{
+      //   geoData.features.properties[attr] = measurement[attr]; 
+      // }
+      console.log(attr +"="+measurement[attr])
     } 
   }
   console.log(geoData)
