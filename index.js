@@ -13,6 +13,16 @@ var mymap = L.map("mapid", {
   doubleClickZoom: false,
 });
 
+const createGeoJSON = (response) => {
+  const data = [
+      {
+          lat: response[0].longitude,
+          lng: response[0].latitude
+      }
+  ];
+  const dataGeoJSON = GeoJSON.parse(data, { Point: ["lat", "lng"] });
+  console.log(JSON.stringify(dataGeoJSON, null, 4));
+}
 function DataShow() {
   var response;
   var xhr = new XMLHttpRequest();
@@ -20,47 +30,39 @@ function DataShow() {
   xhr.onreadystatechange = function () {
     if (xhr.readyState == 4) {
       if (xhr.status == 200) {
-        // response = JSON.parse(xhr.responseText);
         response = JSON.parse(xhr.responseText);
+        createGeoJSON(response);
+
         // console.log(response[0].signal_strength_level)
       }
     }
   }
   xhr.send("");
 
-
-  // L.geoJSON(response, {
-  //   style: function (measurment) {
-  //     if (measurment.signal_strength_level == "4")
-  //         {
-  //           console.log(0);
-  //       return { radius: 10, color: "red", weight: 3, fillOpacity: 0.5 };
-  //     }
-  //     else if (
-  //       measurment.signal_strength_level == "2") {
-  //         console.log(1);
-  //       return { radius: 10, color: "Orange", weight: 3, fillOpacity: 0.5 };
-  //     }
-  //     else {
-  //       console.log(2);
-  //       return { radius: 10, color: "Green", weight: 3, fillOpacity: 0.5 }; //excllent
-  //     }
-  //   },
-  //   pointToLayer: function (_geoJsonPoint, latlng) {
-  //     return L.circleMarker(latlng);
-  //   },
-  //   onEachFeature: function (feature, layer) {
-  //     layer.bindPopup(`<div><span style="font-weight: bold;"> ID : </span> ${measurement.cell_id}</div>`);
-  //   },
-  // }).addTo(mymap);
-  $.getJSON(response, function(jsonData) {
-    var outGeoJson = {}
-    outGeoJson['properties'] = jsonData
-    outGeoJson['type']= "Feature"
-    outGeoJson['geometry']= {"type": "Point", "coordinates":
-        [jsonData['latitude'], jsonData['longitude']]}
+ 
   
-    console.log(outGeoJson)
-  });
+
+  L.geoJSON(response, {
+    style: function (measurment) {
+      if (measurment.signal_strength_level == "4")
+          {
+        return { radius: 10, color: "red", weight: 3, fillOpacity: 0.5 };
+      }
+      else if (
+        measurment.signal_strength_level == "2") {
+        return { radius: 10, color: "Orange", weight: 3, fillOpacity: 0.5 };
+      }
+      else {
+        return { radius: 10, color: "Green", weight: 3, fillOpacity: 0.5 }; //excllent
+      }
+    },
+    pointToLayer: function (_geoJsonPoint, latlng) {
+      return L.circleMarker(latlng);
+    },
+    onEachFeature: function (feature, layer) {
+      layer.bindPopup(`<div><span style="font-weight: bold;"> ID : </span> ${measurement.cell_id}</div>`);
+    },
+  }).addTo(mymap);
+  
 }
 DataShow();
