@@ -35,28 +35,11 @@ function DataShow() {
     if (xhr.readyState == 4) {
       if (xhr.status == 200) {
         response = JSON.parse(xhr.responseText);
-        
-        for (let measurement in response ){
-          geoData.features.type = "Feature";
-          geoData.features.geometry = {"type": "Point","coordinates":[]}
-        
-          for (let attr in measurement){
-            if(attr === "longitude" || attr === "latitude"){
-              geoData.features.geometry.coordinates.push(measurement[attr]);
-            }
-            else{
-              geoData.features.properties[attr] = measurement[attr]; 
-            }
-          } 
-        }
-        console.log(geoData)
-
-        // console.log(response[0].signal_strength_level)
       }
     }
   }
   xhr.send("");
-
+  
  
   
 
@@ -81,6 +64,19 @@ function DataShow() {
       layer.bindPopup(`<div><span style="font-weight: bold;"> ID : </span> ${measurement.cell_id}</div>`);
     },
   }).addTo(mymap);
+  for (let measurement in response ){
+    geoData.features.type = "Feature";
+    geoData.features.geometry = {"type": "Point","coordinates":[]}
   
+    for (let attr in measurement){
+      if(attr === "longitude" || attr === "latitude"){
+        geoData.features.geometry.coordinates.push(measurement[attr]);
+      }
+      else{
+        geoData.features.properties[attr] = measurement[attr]; 
+      }
+    } 
+  }
+  console.log(geoData)
 }
 DataShow();
