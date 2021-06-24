@@ -29,31 +29,38 @@ function DataShow() {
   xhr.send("");
 
 
-
-
-  L.geoJSON(response, {
-    style: function (measurment) {
-      if (measurment.signal_strength_level == "4")
-          {
-            console.log(0);
-        return { radius: 10, color: "red", weight: 3, fillOpacity: 0.5 };
-      }
-      else if (
-        measurment.signal_strength_level == "2") {
-          console.log(1);
-        return { radius: 10, color: "Orange", weight: 3, fillOpacity: 0.5 };
-      }
-      else {
-        console.log(2);
-        return { radius: 10, color: "Green", weight: 3, fillOpacity: 0.5 }; //excllent
-      }
-    },
-    pointToLayer: function (_geoJsonPoint, latlng) {
-      return L.circleMarker(latlng);
-    },
-    onEachFeature: function (feature, layer) {
-      layer.bindPopup(`<div><span style="font-weight: bold;"> ID : </span> ${measurement.cell_id}</div>`);
-    },
-  }).addTo(mymap);
+  // L.geoJSON(response, {
+  //   style: function (measurment) {
+  //     if (measurment.signal_strength_level == "4")
+  //         {
+  //           console.log(0);
+  //       return { radius: 10, color: "red", weight: 3, fillOpacity: 0.5 };
+  //     }
+  //     else if (
+  //       measurment.signal_strength_level == "2") {
+  //         console.log(1);
+  //       return { radius: 10, color: "Orange", weight: 3, fillOpacity: 0.5 };
+  //     }
+  //     else {
+  //       console.log(2);
+  //       return { radius: 10, color: "Green", weight: 3, fillOpacity: 0.5 }; //excllent
+  //     }
+  //   },
+  //   pointToLayer: function (_geoJsonPoint, latlng) {
+  //     return L.circleMarker(latlng);
+  //   },
+  //   onEachFeature: function (feature, layer) {
+  //     layer.bindPopup(`<div><span style="font-weight: bold;"> ID : </span> ${measurement.cell_id}</div>`);
+  //   },
+  // }).addTo(mymap);
+  $.getJSON(response, function(jsonData) {
+    var outGeoJson = {}
+    outGeoJson['properties'] = jsonData
+    outGeoJson['type']= "Feature"
+    outGeoJson['geometry']= {"type": "Point", "coordinates":
+        [jsonData['latitude'], jsonData['longitude']]}
+  
+    console.log(outGeoJson)
+  });
 }
 DataShow();
