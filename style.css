@@ -1,11 +1,19 @@
-
-#mapid {
-  width: 70%;
-  height: 70vh;
+#map {
+  width: 100%;
+  height: 100vh;
+  background: gray;
 }
-/* .container1{
-display: flex;
-justify-content: space-between;
-align-items:center ;
+/* .overlay {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 1em;
+  background: #FFF;
+  li {
+    margin: 1em 2em 1em .5em;
+    cursor: pointer;
+  }
 } */
-
