@@ -31,13 +31,13 @@ function responseManipulation(response) {
     obj["geometry"] = { "type": "Point", "coordinates": [response['measurement'][i]['latitude'], response['measurement'][i]['longitude']] }
     if (obj["properties"].status === "-120") {
       x = L.circleMarker([obj["geometry"]["coordinates"][0], obj["geometry"]["coordinates"][1]],
-        { radius: 20, color: "Green", weight: 3, fillOpacity: 0.5 }).addTo(mymap);
+        { radius: 30, color: "Green", weight: 3, fillOpacity: 0.5 }).addTo(mymap);
     }
     else if (obj["properties"].status === "-50") {
-      x = L.circleMarker([obj["geometry"]["coordinates"][0], obj["geometry"]["coordinates"][1]], { radius: 20, color: "red", weight: 3, fillOpacity: 0.5 }).addTo(mymap);
+      x = L.circleMarker([obj["geometry"]["coordinates"][0], obj["geometry"]["coordinates"][1]], { radius: 30, color: "red", weight: 3, fillOpacity: 0.5 }).addTo(mymap);
     }
     else {
-      x = L.circleMarker([obj["geometry"]["coordinates"][0], obj["geometry"]["coordinates"][1]], { radius: 20, color: "yellow", weight: 3, fillOpacity: 0.5 }).addTo(mymap);
+      x = L.circleMarker([obj["geometry"]["coordinates"][0], obj["geometry"]["coordinates"][1]], { radius: 30, color: "yellow", weight: 3, fillOpacity: 0.5 }).addTo(mymap);
     }
 
     x.bindPopup(`<div><span style="font-weight: bold;"> Cell ID : </span> ${obj['properties'].cell_id}<br><span style="font-weight: bold;"> IMSI : </span>${obj['properties'].IMSI}
