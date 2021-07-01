@@ -6,6 +6,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -16,31 +17,27 @@ import com.twilio.type.PhoneNumber;
 
 @Path("/")
 public class VerificationAPI {
-	public static final String ACCOUNT_SID = "ACb30f70bb56514c664ac2ff0a44c76457";
-	public static final String AUTH_TOKEN = "edd633bb4128bd327c14a39728005366";
+	public static final String ACCOUNT_SID = "ACbd83194a52f681de3c6b46d57df3bca3";
+	public static final String AUTH_TOKEN = "a4fabeac4721c1f3461e48ad520bd434";
 
 	@POST
 	@Path("/sendCode")
 	@Consumes(MediaType.APPLICATION_JSON)
-	
 	public Response  sendVerificationCode(Verification ver) {
 		ver.setVerifCode(VerificationAPI.generateRandom(5));
         String result=null ;
-		
 		Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 		Message message = Message.creator(
 				new com.twilio.type.PhoneNumber(ver.getMsisdn()),
-				new com.twilio.type.PhoneNumber("+17653750805"),
+				new com.twilio.type.PhoneNumber("+19283797343"),
 				"Your verification code Is :" + ver.verifCode).create();
-        
-		System.out.println(ver.getMsisdn()+"******"+message.getSid());
 		if(message.getSid().equals(null))
       		result = "Failed to send Message:";
 		else {
 			 result   = "Message Sent Successfuly:";
-			 result += "\n"+ ver.insertMeasurement(ver);
+			 ver.insertVerif(ver);
 		}		
-		return Response.status(200).entity(result).build(); 
+		return Response.status(200).entity(result).build();
 	}
 
 	
@@ -48,12 +45,12 @@ public class VerificationAPI {
 	@Path("/isCodeValid")
 	@Consumes(MediaType.APPLICATION_JSON)
      public Response isValid(Verification ver) {
-    	 String result = "false";
+    	 String result = "{\"verified\": \"false\"}";
     	 String state = ver.checkCode(ver);
     	 if(state.equals("1"))
-    	    result = "true";
+    		 result = "{\"verified\": \"true\"}";
     	 
-    	 return Response.status(200).entity(result).build(); 
+    	 return Response.status(200).entity(result).type(MediaType.APPLICATION_JSON).build(); 
      }
      
      

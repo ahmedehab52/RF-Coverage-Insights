@@ -34,6 +34,21 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	
+	
+	<servlet>
+		<servlet-name>analytics-api</servlet-name>
+		<servlet-class>
+			com.sun.jersey.spi.container.servlet.ServletContainer
+		</servlet-class>
+		<init-param>
+			<param-name>com.sun.jersey.config.property.packages</param-name>
+			<param-value>com.iti.analytics</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	
+	
 	<servlet-mapping>
 		<servlet-name>measurment-api</servlet-name>
 		<url-pattern>/measurment/*</url-pattern>
@@ -43,4 +58,11 @@
 		<servlet-name>verification-api</servlet-name>
 		<url-pattern>/verification/*</url-pattern>
 	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>analytics-api</servlet-name>
+		<url-pattern>/analytics/*</url-pattern>
+	</servlet-mapping>
+	
+	
 </web-app>
