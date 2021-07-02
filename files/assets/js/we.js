@@ -108,8 +108,8 @@ document.getElementById("search-btn").addEventListener('click',function(){
   var xhr = new XMLHttpRequest();
   var long,lat;
   console.log(document.getElementById("address-search").value)
-  xhr.open("GET", "http://api.positionstack.com/v1/forward?access_key=305db552c8ef2a0a37c5e8280165bc51&query="+ 
-  document.getElementById("address-search").value+"&limit=1");
+  xhr.open("GET", "https://immense-journey-36861.herokuapp.com/analytics/forwardGeoCoding/"+ document.getElementById("address-search").value);
+
   xhr.onreadystatechange = function () {
     if (xhr.readyState == 4) {
       if (xhr.status == 200) {
