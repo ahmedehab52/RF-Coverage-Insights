@@ -295,13 +295,13 @@
                                             <!-- task, page, download counter  end -->
 
                                             <!-- Analytics start -->
-                                            <div class="col-xl-6 col-md-12">
+                                            <div class="col-xl-12 col-md-12">
                                                 <div class="card">
                                                     <div class="card-header">
-                                                        <h5>Types Of The Used Devices</h5>
+                                                        <h5>Device Vs Signal Strength</h5>
                                                     </div>
                                                     <div class="card-block">
-                                                        <canvas id="newuserchart" height="250"></canvas>
+                                                        <div id="device-operator-chart" style="height:470px"></div>
                                                     </div>
                                                     <div class="card-footer ">
                                                         <div id="bi-chart" class="row text-center b-t-default">
@@ -310,10 +310,10 @@
                                                 </div>
                                             </div>
                                     
-                                            <div class="col-xl-6 col-md-12">
+                                            <div class="col-xl-7 col-md-12">
                                                 <div class="card">
                                                     <div class="card-block bg-c-green">
-                                                        <div id="proj-earning" style="height: 300px"></div>
+                                                        <div id="operator-signal" style="height: 50vh"></div>
                                                     </div>
                                                     <div class="card-footer ">
                                                         <div class="row text-center b-t-default">
@@ -341,13 +341,13 @@
                                             <!-- visitor end -->
 
                                             <!-- sale start -->
-                                            <div class="" style="width: 99%;">
+                                            <div class="col-xl-5 col-md-12" >
                                                 <div class="card table-card">
                                                     <div class="card-header">
                                                         <h5></h5>
                                                     </div>
                                                     <div class="card-block">
-                                                        <div class="table-responsive">
+                                                        <div class="table-responsive" style="height: 54vh">
                                                             <table class="table table-hover table-borderless">
                                                                 <thead>
                                                                     <tr>
@@ -507,6 +507,9 @@
     <script type="text/javascript" src="..\files\bower_components\chart.js\js\Chart.js"></script>
     <!-- amchart js -->
     <script src="..\files\assets\pages\widget\amchart\amcharts.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
     <script src="..\files\assets\pages\widget\amchart\serial.js"></script>
     <script src="..\files\assets\pages\widget\amchart\light.js"></script>
     <!-- Custom js -->
