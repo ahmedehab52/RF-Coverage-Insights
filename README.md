@@ -50,7 +50,7 @@ with different operators.
 ![SQL](https://github.com/ahmedehab52/RF-Coverage-Insights/blob/Doc/files/assets/icons8-postgresql-48.png)
 ![Heroku](https://github.com/ahmedehab52/RF-Coverage-Insights/blob/Doc/files/assets/icons8-heroku-48.png)
 ![Twilio](https://github.com/ahmedehab52/RF-Coverage-Insights/blob/Doc/files/assets/icons8-twilio-is-a-cloud-communications-platform-as-a-service-company-24.png)
-![JSON](https://github.com/ahmedehab52/RF-Coverage-Insights/blob/Doc/files/assets/icons8-json-16.png)
+![JSON](https://github.com/ahmedehab52/RF-Coverage-Insights/blob/Doc/icons8-json-50.png)
 
 
 
