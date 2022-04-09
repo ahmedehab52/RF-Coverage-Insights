@@ -73,7 +73,9 @@ with different operators.
 
 2. Web Platform
 
-![Web](https://github.com/ahmedehab52/RF-Coverage-Insights/blob/Doc/files/assets/ezgif.com-gif-maker.gif)
+<p align="center">
+  <img src="https://github.com/ahmedehab52/RF-Coverage-Insights/blob/Doc/files/assets/ezgif.com-gif-maker.gif" alt="WEB GIF" width="700px" hight='1000px'/>
+</p>
 
 ![Web](https://github.com/ahmedehab52/RF-Coverage-Insights/blob/Doc/files/assets/Web_APP1.PNG)
 
