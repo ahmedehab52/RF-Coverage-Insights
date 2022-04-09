@@ -43,7 +43,45 @@ operators and the other shows the average signal strength for different types of
 with different operators.
 
 ## Used Technology
-[![GitHub license](https://img.shields.io/github/license/microsoft/Data-Science-For-Beginners.svg)](https://github.com/microsoft/Data-Science-For-Beginners/blob/master/LICENSE)
+![JAVA](https://github.com/ahmedehab52/RF-Coverage-Insights/blob/Doc/files/assets/icons8-java-48.png)
+![HTML](https://github.com/ahmedehab52/RF-Coverage-Insights/blob/Doc/files/assets/icons8-html-64.png)
+![CSS](https://github.com/ahmedehab52/RF-Coverage-Insights/blob/Doc/files/assets/icons8-css-64.png)
+![JavaScript](https://github.com/ahmedehab52/RF-Coverage-Insights/blob/Doc/files/assets/icons8-javascript-48.png)
+![SQL](https://github.com/ahmedehab52/RF-Coverage-Insights/blob/Doc/files/assets/icons8-postgresql-48.png)
+![Heroku](https://github.com/ahmedehab52/RF-Coverage-Insights/blob/Doc/files/assets/icons8-heroku-48.png)
+![Twilio](https://github.com/ahmedehab52/RF-Coverage-Insights/blob/Doc/files/assets/icons8-twilio-is-a-cloud-communications-platform-as-a-service-company-24.png)
+![JSON](https://github.com/ahmedehab52/RF-Coverage-Insights/blob/Doc/files/assets/icons8-json-16.png)
 
-**Our Solution**
-You can visit our web Platform through the follwoing Link:
+
+
+## Our Solution
+
+1. Mobile APP:
+
+**a. Sign Up**
+
+![Android APP](https://github.com/ahmedehab52/RF-Coverage-Insights/blob/Doc/files/assets/Android%20APP_3.png)
+
+**b. Verify yourself by verification code set to your number**
+
+![Android APP](https://github.com/ahmedehab52/RF-Coverage-Insights/blob/Doc/files/assets/Android%20APP_4.png)
+
+**c. Browse the app and collect data to send it to backend**
+
+![Android APP](https://github.com/ahmedehab52/RF-Coverage-Insights/blob/Doc/files/assets/Android%20APP.png)
+![Android APP](https://github.com/ahmedehab52/RF-Coverage-Insights/blob/Doc/files/assets/Android%20APP_2.png)
+
+2. Web Platform
+
+![Web](https://github.com/ahmedehab52/RF-Coverage-Insights/blob/Doc/files/assets/ezgif.com-gif-maker.gif)
+
+![Web](https://github.com/ahmedehab52/RF-Coverage-Insights/blob/Doc/files/assets/Web_APP1.PNG)
+
+![Web](https://github.com/ahmedehab52/RF-Coverage-Insights/blob/Doc/files/assets/Web_APP2.PNG)
+
+![Web](https://github.com/ahmedehab52/RF-Coverage-Insights/blob/Doc/files/assets/Web_APP3.PNG)
+
+![Web](https://github.com/ahmedehab52/RF-Coverage-Insights/blob/Doc/files/assets/Web_APP4.PNG)
+
+
+
